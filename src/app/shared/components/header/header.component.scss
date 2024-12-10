@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+.custom-header {
+  font-family: 'Poppins', sans-serif;
+
+  ion-menu-button {
+    --color: #ffffff; /* Color blanco para el icono del menú */
+  }
+
+  ion-icon {
+    --color: #ffffff; /* Asegurar que el ícono del menú también sea blanco */
+  }
+
+  ion-toolbar {
+    --background: linear-gradient(135deg, #1e3c72, #2a5298, #7db9e8);
+  }
+
+  ion-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  ion-back-button {
+    --color: #ffffff;
+  }
+}

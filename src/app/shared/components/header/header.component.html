@@ -1,0 +1,26 @@
+<!-- header.component.html -->
+<ion-header class="ion-no-border custom-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Botón de regresar -->
+      <ion-back-button 
+        *ngIf="backButton" 
+        [defaultHref]="backButton"
+        text=""
+        icon="chevron-back-outline">
+      </ion-back-button>
+
+      <!-- Botón para cerrar el modal -->
+      <ion-button (click)="dismissModal()" *ngIf="isModal">
+        <ion-icon name="close-circle-outline" color="dark"></ion-icon>
+      </ion-button>
+
+      <!-- Botón del menú -->
+      <ion-menu-button *ngIf="shouldShowMenu()"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">
+      <strong>{{ title }}</strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>

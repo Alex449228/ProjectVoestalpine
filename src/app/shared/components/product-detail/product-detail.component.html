@@ -1,0 +1,192 @@
+<app-header 
+  [title]="'Detalles del Producto'" 
+  backButton="main/home"
+  [isModal]="false">
+</app-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="!loading && product" class="product-detail-container">
+    <div class="product-layout">
+      <div class="image-section">
+        <div class="image-container">
+          <img [src]="product.image" [alt]="product.marca + ' ' + product.modelo" class="product-image">
+        </div>
+        
+        <!-- Información del vendedor en móvil -->
+        <ion-card class="seller-card mobile-only">
+          <ion-card-content>
+            <h3>Información del Vendedor</h3>
+            <ion-list>
+              <ion-item lines="none">
+                <ion-icon name="person-outline" slot="start"></ion-icon>
+                <ion-label>{{ product.sellerName }}</ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-icon name="mail-outline" slot="start"></ion-icon>
+                <ion-label>{{ product.sellerEmail }}</ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-icon name="calendar-outline" slot="start"></ion-icon>
+                <ion-label>
+                  <p>Publicado: {{ product.createdAt | date:'mediumDate' }}</p>
+                  <p>Actualizado: {{ product.updatedAt | date:'mediumDate' }}</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+            <ion-button expand="block" color="primary" (click)="contactSeller()" class="contact-button">
+              <ion-icon name="mail-outline" slot="start"></ion-icon>
+              Contactar al vendedor
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+      <div class="info-section">
+        <ion-card class="main-info-card">
+          <ion-card-header>
+            <div class="title-section">
+              <ion-card-title>{{ product.marca }} {{ product.modelo }}</ion-card-title>
+              <div class="price-badge">
+                ${{ product.precio | number:'1.2-2' }}
+              </div>
+            </div>
+            <ion-card-subtitle>{{ product.anio }} • {{ product.kilometraje | number:'1.0-0' }} km</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <div class="quick-info">
+              <div class="info-item">
+                <ion-icon name="speedometer-outline"></ion-icon>
+                <span>{{ product.kilometraje | number:'1.0-0' }} km</span>
+              </div>
+              <div class="info-item">
+                <ion-icon name="car-outline"></ion-icon>
+                <span>{{ product.condicion }}</span>
+              </div>
+              <div class="info-item">
+                <ion-icon name="flash-outline"></ion-icon>
+                <span>{{ product.tipoCombustible }}</span>
+              </div>
+              <div class="info-item">
+                <ion-icon name="cog-outline"></ion-icon>
+                <span>{{ product.transmision }}</span>
+              </div>
+            </div>
+
+            <div class="section-title">
+              <h3>Especificaciones</h3>
+            </div>
+            <ion-list>
+              <ion-item>
+                <ion-label>
+                  <h2>Marca</h2>
+                  <p>{{ product.marca }}</p>
+                </ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>
+                  <h2>Modelo</h2>
+                  <p>{{ product.modelo }}</p>
+                </ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>
+                  <h2>Año</h2>
+                  <p>{{ product.anio }}</p>
+                </ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>
+                  <h2>Kilometraje</h2>
+                  <p>{{ product.kilometraje | number:'1.0-0' }} km</p>
+                </ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>
+                  <h2>Tipo de Combustible</h2>
+                  <p>{{ product.tipoCombustible }}</p>
+                </ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>
+                  <h2>Transmisión</h2>
+                  <p>{{ product.transmision }}</p>
+                </ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>
+                  <h2>Condición</h2>
+                  <p>{{ product.condicion }}</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+
+            <div class="section-title">
+              <h3>Descripción</h3>
+            </div>
+            <p class="description-text">{{ product.descripcion }}</p>
+
+            <!-- Información del vendedor en desktop -->
+            <div class="seller-info desktop-only">
+              <div class="section-title">
+                <h3>Información del Vendedor</h3>
+              </div>
+              <ion-list>
+                <ion-item lines="none">
+                  <ion-icon name="person-outline" slot="start"></ion-icon>
+                  <ion-label>{{ product.sellerName }}</ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-icon name="mail-outline" slot="start"></ion-icon>
+                  <ion-label>{{ product.sellerEmail }}</ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-icon name="calendar-outline" slot="start"></ion-icon>
+                  <ion-label>
+                    <p>Publicado: {{ product.createdAt | date:'mediumDate' }}</p>
+                    <p>Actualizado: {{ product.updatedAt | date:'mediumDate' }}</p>
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+              <ion-button expand="block" color="primary" (click)="contactSeller()" class="contact-button">
+                <ion-icon name="mail-outline" slot="start"></ion-icon>
+                Contactar al vendedor
+              </ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading skeleton -->
+  <div *ngIf="loading" class="product-layout">
+    <div class="image-section">
+      <ion-skeleton-text animated style="width: 100%; height: 400px;"></ion-skeleton-text>
+    </div>
+    <div class="info-section">
+      <ion-card>
+        <ion-card-header>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let i of [1,2,3,4,5,6,7]">
+              <ion-label>
+                <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

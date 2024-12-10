@@ -1,0 +1,87 @@
+.hero-section {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .hero-section ion-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .overlay h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .overlay p {
+    font-size: 1.2rem;
+    max-width: 600px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .background-light {
+    background: var(--ion-color-light);
+  }
+
+  ion-card {
+    margin: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  ion-card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.3rem;
+  }
+
+  .feature-item {
+    --background: transparent;
+    margin: 1rem 0;
+  }
+
+  .feature-item ion-icon {
+    font-size: 2rem;
+  }
+
+  .team-card {
+    text-align: center;
+  }
+
+  .team-card ion-img {
+    height: 200px;
+    object-fit: cover;
+  }
+  .map-container {
+    height: 400px;
+    width: 100%;
+    margin-bottom: 2rem; /* Espacio entre el mapa y el footer */
+  }
+
+  .footer-container {
+    margin-top: auto; /* Empuja el footer al fondo */
+  }

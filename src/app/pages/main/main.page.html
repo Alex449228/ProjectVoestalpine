@@ -1,0 +1,55 @@
+<ion-menu contentId="menu-content" menuId="menu-content" side="start" class="custom-menu">
+  <!-- Encabezado del menú con imagen de perfil -->
+  <div class="menu-header">
+    <div class="profile-section">
+      <div class="profile-initial" [style.background-color]="getInitialBackground()">
+        {{ getUserInitial() }}
+        <div class="status-indicator"></div>
+      </div>
+      <div class="welcome-text">
+        <h2>Bienvenido</h2>
+        <p>{{user()?.name}}</p>
+      </div>
+    </div>
+  </div>
+
+  <ion-content>
+    <div class="menu-content">
+      <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+        <ion-item 
+          [ngClass]="{'active': currentPath === p.url}"
+          [routerLink]="p.url" 
+          routerDirection="root" 
+          class="menu-item"
+          lines="none"
+        >
+          <ion-icon 
+            slot="start" 
+            [name]="p.icon" 
+            class="menu-icon"
+          ></ion-icon>
+          <ion-label>{{p.title}}</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <!-- Botón de Cerrar Sesión -->
+      <div class="logout-container">
+        <ion-item 
+          button 
+          (click)="signOut()" 
+          class="menu-item logout-button"
+          lines="none"
+        >
+          <ion-icon 
+            slot="start" 
+            name="log-out-outline" 
+            class="menu-icon logout-icon"
+          ></ion-icon>
+          <ion-label>Cerrar Sesión</ion-label>
+        </ion-item>
+      </div>
+    </div>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="menu-content" main></ion-router-outlet>

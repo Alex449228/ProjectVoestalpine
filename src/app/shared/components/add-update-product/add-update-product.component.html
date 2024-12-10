@@ -1,0 +1,130 @@
+<app-header [isModal]="true" [title]="product ? 'Actualizar Producto' : 'Agregar Producto'"></app-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="ion-padding ion-text-center">
+
+    <!-- Marca -->
+    <ion-item>
+      <app-custom-input
+        label="Marca"
+        type="text"
+        [control]="form.controls.marca"
+        autocomplete="off"
+      ></app-custom-input>
+    </ion-item>
+    <div class="validators" *ngIf="form.controls.marca.errors && form.controls.marca.touched">
+      <div *ngIf="form.controls.marca.errors?.['required']">
+        La Marca es requerida
+      </div>
+      <div *ngIf="form.controls.marca.errors?.['minlength']">
+        La Marca debe tener al menos 2 caracteres
+      </div>
+    </div>
+
+    <!-- Modelo -->
+    <ion-item>
+      <app-custom-input
+        label="Modelo"
+        type="text"
+        [control]="form.controls.modelo"
+        autocomplete="off"
+      ></app-custom-input>
+    </ion-item>
+    <div class="validators" *ngIf="form.controls.modelo.errors && form.controls.modelo.touched">
+      <div *ngIf="form.controls.modelo.errors?.['required']">
+        El Modelo es requerido
+      </div>
+      <div *ngIf="form.controls.modelo.errors?.['minlength']">
+        El Modelo debe tener al menos 2 caracteres
+      </div>
+    </div>
+
+    <!-- Año -->
+    <ion-item>
+      <app-custom-input
+        label="Año"
+        type="number"
+        [control]="form.controls.anio"
+        autocomplete="off"
+      ></app-custom-input>
+    </ion-item>
+
+    <!-- Precio -->
+    <ion-item>
+      <app-custom-input
+        label="Precio"
+        type="number"
+        [control]="form.controls.precio"
+        autocomplete="off"
+      ></app-custom-input>
+    </ion-item>
+
+    <!-- Kilometraje -->
+    <ion-item>
+      <app-custom-input
+        label="Kilometraje"
+        type="number"
+        [control]="form.controls.kilometraje"
+        autocomplete="off"
+      ></app-custom-input>
+    </ion-item>
+
+    <!-- Tipo de Combustible -->
+    <ion-item>
+      <ion-label>Tipo de Combustible</ion-label>
+      <ion-select [formControl]="form.controls.tipoCombustible">
+        <ion-select-option value="gasolina">Gasolina</ion-select-option>
+        <ion-select-option value="diesel">Diesel</ion-select-option>
+        <ion-select-option value="electrico">Eléctrico</ion-select-option>
+        <ion-select-option value="hibrido">Híbrido</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Transmisión -->
+    <ion-item>
+      <ion-label>Transmisión</ion-label>
+      <ion-select [formControl]="form.controls.transmision">
+        <ion-select-option value="manual">Manual</ion-select-option>
+        <ion-select-option value="automatica">Automática</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Condición -->
+    <ion-item>
+      <ion-label>Condición</ion-label>
+      <ion-select [formControl]="form.controls.condicion">
+        <ion-select-option value="nuevo">Nuevo</ion-select-option>
+        <ion-select-option value="usado">Usado</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Descripción -->
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-textarea [formControl]="form.controls.descripcion" rows="4"></ion-textarea>
+    </ion-item>
+
+    <!-- Imagen -->
+    <ion-item>
+      <ion-avatar *ngIf="form.value.image">
+        <img [src]="form.value.image" />
+      </ion-avatar>
+      <ion-icon class="image-icon" *ngIf="!form.value.image" name="image-outline"></ion-icon>
+      <ion-button (click)="takeImage()" size="small" shape="round">
+        Tomar o seleccionar una foto
+      </ion-button>
+    </ion-item>
+
+    <ion-button
+      mode="ios"
+      class="ion-margin"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      {{product ? 'Actualizar Producto' : 'Agregar Producto'}}
+      <ion-icon slot="end" name="checkmark-circle-outline"></ion-icon>
+    </ion-button>
+    
+  </form>
+</ion-content>

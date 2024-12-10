@@ -1,0 +1,71 @@
+.product-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 16px; /* Añadido para espaciado entre tarjetas */
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-image-container {
+  height: 200px;
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-title {
+  font-size: 1.5rem; /* Aumentado para mayor visibilidad */
+  font-weight: bold;
+  color: #333; /* Color oscuro para mejor legibilidad */
+}
+
+.product-seller {
+  font-size: 1rem;
+  color: #666; /* Color gris para diferenciar subtítulos */
+}
+
+.product-details p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.product-price {
+  font-size: 1.25rem; /* Aumentado para mayor visibilidad */
+  font-weight: bold;
+  color: #2dd36f; /* Color verde para precio */
+}
+
+.product-actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+ion-button {
+  --padding-start: 10px;
+  --padding-end: 10px;
+  font-size: 0.9rem; /* Tamaño de fuente consistente */
+  text-transform: uppercase; /* Mayúsculas para botones */
+}
+
+.empty {
+  text-align: center;
+  padding: 20px;
+  color: #666; /* Color gris para mensajes vacíos */
+}
+
+@media (min-width: 768px) {
+  ion-col {
+    padding: 10px;
+  }
+}

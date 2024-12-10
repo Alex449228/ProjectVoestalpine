@@ -1,0 +1,72 @@
+<app-header title="Iniciar Sesion"></app-header>
+<ion-content>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <h1>Iniciar Sesión</h1>
+      </div>
+      <div class="login-form">
+        <app-logo></app-logo>
+        <form
+          [formGroup]="form"
+          (ngSubmit)="submit()"
+          (keypress.enter)="submit()"
+        >
+          <app-custom-input
+            autocomplete="email"
+            icon="mail-outline"
+            [control]="form.controls.email"
+            type="email"
+            label="Correo"
+          ></app-custom-input>
+
+          <div
+            class="validators"
+            *ngIf="form.controls.email.errors && form.controls.email.touched"
+          >
+            <div *ngIf="form.controls.email.errors?.['required']">
+              El correo es requerido
+            </div>
+            <div *ngIf="form.controls.email.errors?.['email']">
+              Ingresa un correo válido
+            </div>
+          </div>
+
+          <app-custom-input
+            [control]="form.controls.password"
+            icon="lock-closed-outline"
+            type="password"
+            label="Contraseña"
+          ></app-custom-input>
+
+          <div
+            class="validators"
+            *ngIf="form.controls.password.errors && form.controls.password.touched"
+          >
+            <div *ngIf="form.controls.password.errors?.['required']">
+              La contraseña es requerida
+            </div>
+          </div>
+
+          <div class="forgot-password">
+            <a routerLink="recuperar-password">¿Olvidaste tu contraseña?</a>
+          </div>
+
+          <ion-button
+            expand="block"
+            mode="ios"
+            type="submit"
+            [disabled]="form.invalid"
+          >
+            Ingresar
+            <ion-icon slot="end" name="log-in-outline"></ion-icon>
+          </ion-button>
+
+          <div class="register-link">
+            ¿No tienes una cuenta? <a routerLink="sign-up">Regístrate</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</ion-content>

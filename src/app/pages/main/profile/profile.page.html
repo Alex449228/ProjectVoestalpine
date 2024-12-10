@@ -1,0 +1,44 @@
+<app-header title="Perfil"></app-header>
+
+<ion-content class="ion-padding">
+  <div class="profile-container">
+    <div class="profile-initials" [style.background-color]="getInitialBackground()">
+      {{ getUserInitial() }}
+    </div>
+    <h2 class="user-name">{{ user.name }}</h2>
+    <p class="user-email">{{ user.email }}</p>
+  </div>
+
+  <div class="products-container">
+    <h3>Mis Publicaciones</h3>
+    <div class="table-responsive">
+      <ion-grid>
+        <ion-row class="table-header">
+          <ion-col>#</ion-col>
+          <ion-col>Marca</ion-col>
+          <ion-col>Modelo</ion-col>
+          <ion-col>Año</ion-col>
+          <ion-col>Precio</ion-col>
+          <ion-col>Kilometraje</ion-col>
+          <ion-col>Acciones</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let product of products; let i = index">
+          <ion-col>{{ i + 1 }}</ion-col>
+          <ion-col>{{ product.marca }}</ion-col>
+          <ion-col>{{ product.modelo }}</ion-col>
+          <ion-col>{{ product.anio }}</ion-col>
+          <ion-col>{{ product.precio | currency }}</ion-col>
+          <ion-col>{{ product.kilometraje | number }}</ion-col>
+          <ion-col class="action-buttons">
+            <ion-button (click)="addUpdateProduct(product)" color="primary" fill="solid">
+              <ion-icon name="pencil"></ion-icon> Editar
+            </ion-button>
+            <ion-button (click)="confirmDeleteProduct(product)" color="danger" fill="solid">
+              <ion-icon name="trash"></ion-icon> Eliminar
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

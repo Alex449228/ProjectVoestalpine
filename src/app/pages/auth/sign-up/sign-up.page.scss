@@ -1,0 +1,115 @@
+ion-content {
+  --background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+.signup-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.signup-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 90%;
+  max-width: 400px;
+}
+
+.signup-header {
+  background: #3880ff;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.signup-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.signup-form {
+  padding: 20px;
+}
+
+app-logo {
+  display: block;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+app-custom-input {
+  margin-bottom: 15px;
+}
+
+.validators {
+  color: #ff4961;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+ion-button {
+  margin-bottom: 10px;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #3880ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+
+
+ion-item {
+  margin-top: 10px;
+  --background: transparent;
+}
+
+ion-label a {
+  color: #3880ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+ion-label a:hover {
+  text-decoration: underline;
+}
+
+.validators {
+  color: #ff4961;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+.terms-container {
+  display: flex;
+  align-items: flex-start; /* Alinea el contenido con el inicio */
+  padding: 10px 0;
+}
+
+.terms-label {
+  font-size: 0.9rem; /* Ajusta el tamaño del texto */
+  color: #444; /* Un color más suave para el texto */
+  line-height: 1.5; /* Mejora el espacio entre líneas */
+  margin-left: 10px;
+}
+
+.link {
+  color: #3880ff; /* Color para los enlaces */
+  text-decoration: none; /* Elimina subrayados */
+}
+
+.link:hover {
+  text-decoration: underline; /* Agrega subrayado al pasar el mouse */
+}

@@ -1,0 +1,136 @@
+<app-header title="Sobre nosotros"></app-header>
+
+<ion-content>
+  <!-- Banner Section -->
+  <div class="hero-section">
+    <ion-img src="assets/Autos1.jpg"></ion-img>
+    <div class="overlay">
+      <ion-text color="light">
+        <h1>V e l o c i C a r s</h1>
+        <p>Expertos en hacer realidad tus sueños automotrices</p>
+      </ion-text>
+    </div>
+  </div>
+
+  <!-- Misión y Visión -->
+  <ion-grid class="ion-padding">
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon name="flag" color="primary"></ion-icon>
+              Nuestra Misión
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Proporcionar la mejor experiencia en la compra de vehículos,
+            ofreciendo calidad excepcional, transparencia total y un servicio
+            personalizado que supere las expectativas de nuestros clientes.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12" size-md="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon name="eye" color="primary"></ion-icon>
+              Nuestra Visión
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Ser el referente número uno en el mercado automotriz, reconocidos
+            por nuestra innovación, excelencia en servicio y compromiso con la
+            satisfacción del cliente.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Por qué elegirnos -->
+  <ion-grid class="ion-padding background-light">
+    <ion-row>
+      <ion-col size="12">
+        <ion-text color="dark">
+          <h2 class="section-title">¿Por qué elegirnos?</h2>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" size-md="4">
+        <ion-item lines="none" class="feature-item">
+          <ion-icon
+            slot="start"
+            name="car-sport"
+            color="primary"
+            size="large"
+          ></ion-icon>
+          <ion-label>
+            <h3>Amplia Selección</h3>
+            <p>
+              Más de 500 vehículos disponibles para todos los gustos y
+              presupuestos
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+        <ion-item lines="none" class="feature-item">
+          <ion-icon
+            slot="start"
+            name="shield-checkmark"
+            color="primary"
+            size="large"
+          ></ion-icon>
+          <ion-label>
+            <h3>Garantía Extendida</h3>
+            <p>
+              Todos nuestros vehículos incluyen garantía y servicio post-venta
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+        <ion-item lines="none" class="feature-item">
+          <ion-icon
+            slot="start"
+            name="cash"
+            color="primary"
+            size="large"
+          ></ion-icon>
+          <ion-label>
+            <h3>Financiamiento Flexible</h3>
+            <p>Opciones de financiamiento adaptadas a tus necesidades</p>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Ubicación -->
+  <ion-grid class="ion-padding background-light">
+    <ion-row>
+      <ion-col size="12">
+        <ion-text color="dark">
+          <h2 class="section-title">Nuestra Ubicación</h2>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="map-container">
+          <app-maps></app-maps>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="footer-container">
+    <app-footer></app-footer>
+  </div>
+</ion-content>
